@@ -17,7 +17,7 @@
                 <h1 class="pt-2">{{ $post->title }}</h1>
                 <img src="{{ $post->post_image }}" alt="{{ $post->title }}">
                 <h4 class="p-3">{{ $post->post_content }}</h4>
-                <h5 class="pb-3">{{ $post->post_date }}</h5>
+                <h5 class="pb-3">Caricato il: {{ $post->post_date }} da: {{ $post->user->name }}</h5>
                 <form action="{{ route('admin.posts.edit', $post->id) }}" method="GET" class="d-inline">
                     <button class="btn btn-success text-monospace">Modifica</button>
                     @csrf

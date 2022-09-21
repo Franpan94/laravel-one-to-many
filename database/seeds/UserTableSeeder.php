@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use Faker\Generator as Faker;
 use App\Models\User;
 
-class UsersTableSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

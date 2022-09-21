@@ -14,7 +14,8 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Titolo</th>
-            <th scope="col">Autore</th>
+            <th scope="col">UserName</th>
+            <th scope="col">UserId</th>
             <th scope="col">Modifica/Elimina</th>
           </tr>
         </thead>
@@ -23,7 +24,8 @@
             <tr>
               <th scope="row">{{ $post->id }}</th>
               <td><a href="{{ route('admin.posts.show', $post->id) }}">{{ $post->title }}</a></td>
-              <td>{{ $post->author }}</td>
+              <td>{{ $post->user->name }}</td>
+              <td>{{ $post->user_id }}</td>
               <td>
                 <form action="{{ route('admin.posts.edit', $post->id) }}" method="GET" class="d-inline">
                   <button class="btn btn-success text-monospace">Modifica</button>

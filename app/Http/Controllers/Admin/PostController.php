@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::where('user_id', Auth::id())->get();
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -55,7 +55,7 @@ class PostController extends Controller
             'post_image'=>'required|activeurl',
             'post_content'=>'min:10|required',
         ]);
-        $data['author'] = Auth::user()->name;
+        $data['user_id'] = Auth::id();
         $data['post_date'] = new DateTime();
 
         $post = Post::create($data);
@@ -108,7 +108,7 @@ class PostController extends Controller
             'post_content'=>'min:10|required',
         ]);
 
-        $dates['author'] = $post->author;
+        $dates['user_id'] = Auth::id();
         $dates['post_date'] = new DateTime();
         $post->update($dates);
 
